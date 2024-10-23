@@ -1,0 +1,15 @@
+# Inicialización de parámetros
+
+param numero_asientos := 
+    1 90
+    2 120
+    3 200
+    4 150
+    5 190;
+
+param capacidad := 
+    1 1700
+    2 2700
+    3 1300
+    4 1700
+    5 2000;
