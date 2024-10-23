@@ -1,4 +1,3 @@
-# Inicialización de parámetros
 
 param numero_asientos := 
     1 90
