@@ -8,19 +8,19 @@ set TARIFAS := T1 T2 T3;
 /* Parámetros */
 /* `numero_asientos` asigna la cantidad máxima de asientos en cada avión especificado. */
 param numero_asientos := 
-    AV1 90    /* Avión 1 tiene 90 asientos */
-    AV2 120   /* Avión 2 tiene 120 asientos */
-    AV3 200   /* Avión 3 tiene 200 asientos */
-    AV4 150   /* Avión 4 tiene 150 asientos */
-    AV5 190;  /* Avión 5 tiene 190 asientos */
+    AV1 90    
+    AV2 120   
+    AV3 200   
+    AV4 150   
+    AV5 190;  
 
 /* `capacidad` representa la capacidad máxima de peso que cada avión puede llevar, en unidades arbitrarias. */
 param capacidad := 
-    AV1 1700  /* Avión 1 puede llevar un peso máximo de 1700 */
-    AV2 2700  /* Avión 2 puede llevar un peso máximo de 2700 */
-    AV3 1300  /* Avión 3 puede llevar un peso máximo de 1300 */
-    AV4 1700  /* Avión 4 puede llevar un peso máximo de 1700 */
-    AV5 2000; /* Avión 5 puede llevar un peso máximo de 2000 */
+    AV1 1700  
+    AV2 2700  
+    AV3 1300 
+    AV4 1700 
+    AV5 2000; 
 
 /* `precios` define el precio del billete para cada tipo de tarifa. */
 param precios := 
