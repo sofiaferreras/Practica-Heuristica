@@ -1,14 +1,60 @@
+data;
 
+/* Definición de conjuntos */
+/* Definimos dos conjuntos: AVIONES y TARIFAS. */
+/* El conjunto AVIONES contiene cinco aviones etiquetados como AV1, AV2, AV3, AV4, y AV5. */
+/* El conjunto TARIFAS contiene tres tipos de tarifas etiquetadas como T1, T2, y T3. */
+set AVIONES := AV1 AV2 AV3 AV4 AV5;
+set TARIFAS := T1 T2 T3;
+
+/* Parámetros */
+/* Definimos parámetros específicos para cada avión y tarifa. */
+
+/* Número de asientos disponibles en cada avión */
+/* `numero_asientos` asigna la cantidad máxima de asientos en cada avión especificado. */
 param numero_asientos := 
-    1 90
-    2 120
-    3 200
-    4 150
-    5 190;
+    AV1 90    /* Avión 1 tiene 90 asientos */
+    AV2 120   /* Avión 2 tiene 120 asientos */
+    AV3 200   /* Avión 3 tiene 200 asientos */
+    AV4 150   /* Avión 4 tiene 150 asientos */
+    AV5 190;  /* Avión 5 tiene 190 asientos */
 
+/* Capacidad máxima de peso en cada avión */
+/* `capacidad` representa la capacidad máxima de peso que cada avión puede llevar, en unidades arbitrarias. */
 param capacidad := 
-    1 1700
-    2 2700
-    3 1300
-    4 1700
-    5 2000;
+    AV1 1700  /* Avión 1 puede llevar un peso máximo de 1700 */
+    AV2 2700  /* Avión 2 puede llevar un peso máximo de 2700 */
+    AV3 1300  /* Avión 3 puede llevar un peso máximo de 1300 */
+    AV4 1700  /* Avión 4 puede llevar un peso máximo de 1700 */
+    AV5 2000; /* Avión 5 puede llevar un peso máximo de 2000 */
+
+/* Precios de cada tarifa */
+/* `precios` define el precio del billete para cada tipo de tarifa. */
+param precios := 
+    T1 19  /* Tarifa T1 cuesta 19 unidades monetarias */
+    T2 49  /* Tarifa T2 cuesta 49 unidades monetarias */
+    T3 69; /* Tarifa T3 cuesta 69 unidades monetarias */
+
+/* Peso del equipaje permitido en cada tarifa */
+/* `peso` indica el peso en unidades que el equipaje de cada tarifa agrega al avión. */
+param peso := 
+    T1 1    
+    T2 20   
+    T3 40;  
+
+/* Parámetros adicionales */
+/* Estos son parámetros generales que afectan a todas las restricciones. */
+
+
+param min_billetes_2 := 20;  
+/* Al menos 20 billetes de tarifa T2 deben venderse por avión */
+
+
+param min_billetes_3 := 10;  
+/* Al menos 10 billetes de tarifa T3 deben venderse por avión */
+
+
+param porcentaje := 0.6;  
+/* El 60% del total de billetes vendidos debe pertenecer a la tarifa T1 */
+
+end;
