@@ -2,15 +2,10 @@ data;
 
 /* Definición de conjuntos */
 /* Definimos dos conjuntos: AVIONES y TARIFAS. */
-/* El conjunto AVIONES contiene cinco aviones etiquetados como AV1, AV2, AV3, AV4, y AV5. */
-/* El conjunto TARIFAS contiene tres tipos de tarifas etiquetadas como T1, T2, y T3. */
 set AVIONES := AV1 AV2 AV3 AV4 AV5;
 set TARIFAS := T1 T2 T3;
 
 /* Parámetros */
-/* Definimos parámetros específicos para cada avión y tarifa. */
-
-/* Número de asientos disponibles en cada avión */
 /* `numero_asientos` asigna la cantidad máxima de asientos en cada avión especificado. */
 param numero_asientos := 
     AV1 90    /* Avión 1 tiene 90 asientos */
@@ -19,7 +14,6 @@ param numero_asientos :=
     AV4 150   /* Avión 4 tiene 150 asientos */
     AV5 190;  /* Avión 5 tiene 190 asientos */
 
-/* Capacidad máxima de peso en cada avión */
 /* `capacidad` representa la capacidad máxima de peso que cada avión puede llevar, en unidades arbitrarias. */
 param capacidad := 
     AV1 1700  /* Avión 1 puede llevar un peso máximo de 1700 */
@@ -28,14 +22,12 @@ param capacidad :=
     AV4 1700  /* Avión 4 puede llevar un peso máximo de 1700 */
     AV5 2000; /* Avión 5 puede llevar un peso máximo de 2000 */
 
-/* Precios de cada tarifa */
 /* `precios` define el precio del billete para cada tipo de tarifa. */
 param precios := 
-    T1 19  /* Tarifa T1 cuesta 19 unidades monetarias */
-    T2 49  /* Tarifa T2 cuesta 49 unidades monetarias */
-    T3 69; /* Tarifa T3 cuesta 69 unidades monetarias */
+    T1 19  
+    T2 49 
+    T3 69;
 
-/* Peso del equipaje permitido en cada tarifa */
 /* `peso` indica el peso en unidades que el equipaje de cada tarifa agrega al avión. */
 param peso := 
     T1 1    
@@ -44,7 +36,6 @@ param peso :=
 
 /* Parámetros adicionales */
 /* Estos son parámetros generales que afectan a todas las restricciones. */
-
 
 param min_billetes_2 := 20;  
 /* Al menos 20 billetes de tarifa T2 deben venderse por avión */
