@@ -1,0 +1,48 @@
+set AV := AV1 AV2 AV3 AV4 AV5;
+set PT := PT1 PT2 PT3 PT4;
+set ST := ST1 ST2 ST3 ST4 ST5 ST6;
+
+param Coste :=
+  AV1 100
+  AV2 200
+  AV3 150 
+  AV4 250
+  AV5 200;
+
+param HL :=
+  AV1 615
+  AV2 570
+  AV3 600
+  AV4 615
+  AV5 630;
+
+param HS :=
+  ST1 500
+  ST2 515
+  ST3 530
+  ST4 545
+  ST5 600
+  ST6 615;
+
+param HA := 
+  AV1 510
+  AV2 455
+  AV3 540
+  AV4 555
+  AV5 610;
+
+param RT :=
+  [AV1, ST1] 10, [AV1, ST2] 5, [AV1, ST3] 20, [AV1, ST4] 35, [AV1, ST5] 90, [AV1, ST6] 105,
+  [AV2, ST1] 45, [AV2, ST2] 60, [AV2, ST3] 75, [AV2, ST4] 90, [AV2, ST5] 105, [AV2, ST6] 130,
+  [AV3, ST1] 30, [AV3, ST2] 25, [AV3, ST3] 20, [AV3, ST4] 15, [AV3, ST5] 10, [AV3, ST6] 5,
+  [AV4, ST1] 15, [AV4, ST2] 30, [AV4, ST3] 45, [AV4, ST4] 60, [AV4, ST5] 75, [AV4, ST6] 90,
+  [AV5, ST1] 50, [AV5, ST2] 65, [AV5, ST3] 80, [AV5, ST4] 95, [AV5, ST5] 110, [AV5, ST6] 125;
+
+
+param CONSE : PT1 PT2 PT3 PT4 :=
+  ST1 0   0   1   1
+  ST2 0   0   1   0
+  ST3 0   1   1   0
+  ST4 0   1   0   0
+  ST5 1   0   0   1
+  ST6 1   0   1   1;
