@@ -10,11 +10,17 @@ param RT{AV, ST};
 param CONSE {ST, PT}; 
 param M := 10000; 
 
-var beneficio{AV, ST, PT} binary;
+var aterrizaje_correcto_o_no{AV, ST, PT} binary;
 
-minimize coste_total: sum{j in ST, i in AV} RT[i,j] * Coste[i] * (sum {k in PT} beneficio[i,j,k]);
+minimize coste_total_retrasos: 
+    sum{j in ST, i in AV} RT[i,j] * Coste[i] * (sum {k in PT} aterrizaje_correcto_o_no[i,j,k]);
 
+s.t. avion_aterrizado{i in AV}: 
+    sum{j in ST, k in PT} aterrizaje_correcto_o_no[i,j,k] = 1;
+
+s.t. capacidad_maxima_slot {j in ST, k in PT}: 
+    sum{i in AV} aterrizaje_correcto_o_no[i,j,k] <= 1;
 
 solve;
-display beneficio;
-display coste_total;
+display aterrizaje_correcto_o_no;
+display coste_total_retrasos;
