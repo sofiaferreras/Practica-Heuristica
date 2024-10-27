@@ -91,5 +91,6 @@ s.t. no_slots_consecutivos{i in AV, j in ST, k in PT: sig_slot[j] != j and ant_s
     /* Si un avión i aterriza en un slot j en una pista k, entonces no puede aterrizar en los slots anteriores ni en los slots siguientes */
 
 solve;
+
 display ingresos;
 end; 
