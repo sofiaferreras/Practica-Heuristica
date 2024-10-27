@@ -1,14 +1,21 @@
+data;
+/* Definicion de conjuntos */
+/* Definimos dos conjuntos: AVIONES, PISTAS Y SLOTS. */
 set AV := AV1 AV2 AV3 AV4 AV5;
 set PT := PT1 PT2 PT3 PT4;
 set ST := ST1 ST2 ST3 ST4 ST5 ST6;
 
-param Coste :=
+/* Parametros */
+/* Coste de los diferentes retrasos por cada minuto*/ 
+param Coste := 
   AV1 100
   AV2 200
   AV3 150 
   AV4 250
   AV5 200;
 
+/*En este parametro se definen las diferentes horas limites de aterrizaje*/ 
+/*Puesto que el coste se calcula en minutos, todas las operaciones con horas estan en minutos*/
 param HL :=
   AV1 615
   AV2 570
@@ -16,7 +23,8 @@ param HL :=
   AV4 615
   AV5 630;
 
-param HS :=
+/*En este parametro se definen las diferentes horas de incio de los slot*/
+param HI :=
   ST1 540
   ST2 555
   ST3 570
@@ -24,14 +32,17 @@ param HS :=
   ST5 600
   ST6 615;
 
+/*En este parametro se definen las diferentes horas de aterrizaje de los aviones*/
 param HA := 
   AV1 550
   AV2 535
   AV3 580
   AV4 595
   AV5 610;
-
-
+ 
+ /*Otros parametros*/
+/*Este parametro de tipo simbolico define que slot ira despues del slot actual*/
+/*Esto lo usamos para calcular la restriccion que dice que dos slot no pueden ser consecutivos en la misma pista*/ 
 param sig_slot :=
   ST1 ST2
   ST2 ST3
@@ -40,6 +51,8 @@ param sig_slot :=
   ST5 ST6
   ST6 ST6;
 
+/*Este parametro de tipo simbolico define que slot ira antes del slot actual*/
+/*Esto lo usamos para calcular la restriccion que dice que dos slot no pueden ser consecutivos en la misma pista*/ 
 param ant_slot :=
   ST1 ST1
   ST2 ST1
@@ -48,10 +61,15 @@ param ant_slot :=
   ST5 ST4
   ST6 ST5;
 
+/*Defincion de slots validos dentro de cada pista, es decir, que slots no estan ocupados por aviones*/
 set aterrizar_PT1 := ST5 ST6;
 set aterrizar_PT2 := ST3 ST4;
 set aterrizar_PT3 := ST1 ST2 ST3 ST6;
 set aterrizar_PT4 := ST1 ST5 ST6;
+
+/*Para poder realizar los calculos de manera correcta nos ha sido necesario añadir una variable lo suficientemente grande para
+  penalizar solicones no deseadas en la funcion objetivo*/ 
+param M := 10000;
 
 end;
 
