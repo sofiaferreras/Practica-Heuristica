@@ -68,7 +68,7 @@ set aterrizar_PT3 := ST1 ST2 ST3 ST6;
 set aterrizar_PT4 := ST1 ST5 ST6;
 
 /*Para poder realizar los calculos de manera correcta nos ha sido necesario añadir una variable lo suficientemente grande para
-  penalizar solicones no deseadas en la funcion objetivo*/ 
+  penalizar soliciones no deseadas en la funcion objetivo*/ 
 param M := 10000;
 
 end;

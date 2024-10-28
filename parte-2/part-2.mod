@@ -93,4 +93,3 @@ s.t. no_slots_consecutivos{i in AV, j in ST, k in PT: sig_slot[j] != j and ant_s
 solve;
 
 display ingresos;
-end; 
